@@ -17,6 +17,10 @@ const indonesiaRoutes = require('./Routes/indonesia');
 
 app.use('/api/indonesia', indonesiaRoutes);
 
+app.get('/', (req, res) => {
+    res.redirect('/api');
+});
+
 app.get('/api', (req, res) => {
     res.json({
         "message": "Selamat Datang di API COVID-19 INDONESIA - Enjoy My Work",
