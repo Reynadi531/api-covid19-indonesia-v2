@@ -1,6 +1,6 @@
 # API COVID-19 Indonesia v2
 
-Ini adalah improvisasi dari versi [pertama}(https://github.com/Reynadi531/api-covid19-indonesia). Dimana saya menggunakan updater, scrapper dan database, sekarang saya beralih untuk data dari https://data.covid19.go.id/public/api/prov.json dan https://data.covid19.go.id/public/api/update.json. Saya membuat data agar mudah dibaca dan cors compatible
+Ini adalah improvisasi dari versi [pertama](https://github.com/Reynadi531/api-covid19-indonesia). Dimana saya menggunakan updater, scrapper dan database, sekarang saya beralih untuk data dari https://data.covid19.go.id/public/api/prov.json dan https://data.covid19.go.id/public/api/update.json. Saya membuat data agar mudah dibaca dan cors compatible
 
 ## Deployment
 >[JSON API](https://apicovid19indonesia-v2.vercel.app/)<br>
