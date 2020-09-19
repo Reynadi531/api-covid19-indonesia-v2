@@ -1,0 +1,7 @@
+{
+  "name": "API COVID-19 INDONESIA v2",
+  "description": "API COVID-19 Indonesia v2",
+  "repository": "https://github.com/Reynadi531/api-covid19-indonesia-v2",
+  "logo": "https://node-js-sample.herokuapp.com/node.svg",
+  "keywords": ["node", "express", "api"]
+}
