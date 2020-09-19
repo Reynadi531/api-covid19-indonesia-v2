@@ -13,8 +13,6 @@ app.use(cors());
 app.use(helmet());
 app.use(morgan('dev'));
 
-app.set('etag', false)
-
 const indonesiaRoutes = require('./Routes/indonesia');
 
 app.use('/api/indonesia', indonesiaRoutes);
