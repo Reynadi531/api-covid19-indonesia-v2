@@ -15,47 +15,102 @@ router.get('/', async(req, res) => {
     });
 });
 
+router.get('/more', async(req, res) => {
+    const response = await axios.get(url);
+    res.json({
+        "total": {
+            "positif": response.data.update.total.jumlah_positif,
+            "dirawat": response.data.update.total.jumlah_dirawat,
+            "sembuh": response.data.update.total.jumlah_sembuh,
+            "meninggal": response.data.update.total.jumlah_meninggal,
+            "lastUpdate": new Date(response.data.update.penambahan.created)
+        },
+        "penambahan": {
+            "positif": response.data.update.penambahan.jumlah_positif,
+            "dirawat": response.data.update.penambahan.jumlah_dirawat,
+            "sembuh": response.data.update.penambahan.jumlah_sembuh,
+            "meninggal": response.data.update.penambahan.jumlah_meninggal,
+            "tanggal": response.data.update.penambahan.tanggal,
+            "created": new Date(response.data.update.penambahan.created),
+        },
+        "data": {
+            "odp": response.data.data.jumlah_odp,
+            "pdp": response.data.data.jumlah_pdp,
+            "total_spesimen": response.data.data.total_spesimen,
+            "total_spesimen_negatif": response.data.data.total_spesimen_negatif,
+        }
+    });
+});
+
 router.get('/harian', async(req, res) => {
     const response = await axios.get(url);
     let harian = response.data.update.harian;
-    let data = [];
-    
-    for(let i=0; i < harian.length; i++) {
-        let dataModif = {
-            "positif": harian[i].jumlah_positif.value,
-            "dirawat": harian[i].jumlah_dirawat.value,
-            "sembuh": harian[i].jumlah_sembuh.value, 
-            "meninggal": harian[i].jumlah_meninggal.value,
-            "positif_kumulatif": harian[i].jumlah_positif_kum.value,
-            "dirawat_kumulatif": harian[i].jumlah_dirawat_kum.value,
-            "sembuh_kumulatif": harian[i].jumlah_sembuh_kum.value, 
-            "meninggal_kumulatif": harian[i].jumlah_meninggal_kum.value,
-            "lastUpdate": harian[i].key,
-            "tanggal": harian[i].key_as_string
+    let datamodified = harian.map(data => {
+        return {
+        "positif": data.jumlah_positif.value,
+        "dirawat": data.jumlah_dirawat.value,
+        "sembuh": data.jumlah_sembuh.value, 
+        "meninggal": data.jumlah_meninggal.value,
+        "positif_kumulatif": data.jumlah_positif_kum.value,
+        "dirawat_kumulatif": data.jumlah_dirawat_kum.value,
+        "sembuh_kumulatif": data.jumlah_sembuh_kum.value, 
+        "meninggal_kumulatif": data.jumlah_meninggal_kum.value,
+        "lastUpdate": data.key,
+        "tanggal": data.key_as_string,
         }
-        data.push(dataModif);
-    }
-
-    res.json(data);
+    });
+    res.json(datamodified);
 });
 
 router.get('/provinsi', async(req, res) => {
     const response = await axios.get('https://data.covid19.go.id/public/api/prov.json');
     let list_data = response.data.list_data;
-    let data = [];
-
-    for(let i=0; i < list_data.length; i++) {
-        let datamodif = {
-            "id": i+1,
-            "provinsi": list_data[i].key,
-            "kasus": list_data[i].jumlah_kasus,
-            "dirawat": list_data[i].jumlah_dirawat,
-            "sembuh": list_data[i].jumlah_sembuh,
-            "meninggal": list_data[i].jumlah_meninggal,
+    let datamodified = list_data.map(data => {
+        return {
+            "provinsi": data.key,
+            "kasus": data.jumlah_kasus,
+            "dirawat": data.jumlah_dirawat,
+            "sembuh": data.jumlah_sembuh,
+            "meninggal": data.jumlah_meninggal
         }
-        data.push(datamodif);
-    }
-    res.json(data);
+    })
+    res.json(datamodified);
 });
+
+router.get('/provinsi/more', async(req, res) => {
+    const response = await axios.get('https://data.covid19.go.id/public/api/prov.json');
+    let list_data = response.data.list_data;
+    let datamodified = list_data.map(data => {
+        return {
+            "provinsi": data.key,
+            "kasus": data.jumlah_kasus,
+            "dirawat": data.jumlah_dirawat,
+            "sembuh": data.jumlah_sembuh,
+            "meninggal": data.jumlah_meninggal,
+            "jenis_kelamin": {
+                "laki-laki": data.jenis_kelamin[0].doc_count,
+                "perempuan": data.jenis_kelamin[1].doc_count,
+            },
+            "kelompok_umur": {
+                "0-5_tahun" : data.kelompok_umur[0].doc_count, 
+                "6-18_tahun" : data.kelompok_umur[1].doc_count, 
+                "19-30_tahun" : data.kelompok_umur[2].doc_count, 
+                "31-45_tahun" : data.kelompok_umur[3].doc_count, 
+                "46-59_tahun" : data.kelompok_umur[4].doc_count, 
+                "≥60_tahun" : data.kelompok_umur[5].doc_count, 
+            },
+            "penambahan": {
+                "positif": data.penambahan.positif,
+                "sembuh": data.penambahan.sembuh,
+                "meninggal": data.penambahan.meninggal,
+            },
+            "lokasi": {
+                "lon": data.lokasi.lon,
+                "lat": data.lokasi.lat
+            }
+        }
+    });
+    res.json(datamodified);
+})
 
 module.exports = router;

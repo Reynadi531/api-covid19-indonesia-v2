@@ -13,6 +13,8 @@ app.use(cors());
 app.use(helmet());
 app.use(morgan('dev'));
 
+app.set('etag', false)
+
 const indonesiaRoutes = require('./Routes/indonesia');
 
 app.use('/api/indonesia', indonesiaRoutes);
@@ -22,13 +24,16 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api', (req, res) => {
+    const url = `${req.protocol}://${req.hostname}${req.hostname == 'localhost' ? `:${PORT}` : ''}`;
     res.json({
         "message": "Selamat Datang di API COVID-19 INDONESIA - Enjoy My Work",
         "projects source": "https://github.com/Reynadi531/api-covid19-indonesia-v2",
         "endpoints": [
-            `${req.protocol}://${req.hostname}${req.hostname == 'localhost' ? `:${PORT}` : ''}/api/indonesia`,
-            `${req.protocol}://${req.hostname}${req.hostname == 'localhost' ? `:${PORT}` : ''}/api/indonesia/harian`,
-            `${req.protocol}://${req.hostname}${req.hostname == 'localhost' ? `:${PORT}` : ''}/api/indonesia/provinsi`,
+            `${url}/api/indonesia`,
+            `${url}/api/indonesia/more`,
+            `${url}/api/indonesia/harian`,
+            `${url}/api/indonesia/provinsi`,
+            `${url}/api/indonesia/provinsi/more`,
         ]
     });
 });

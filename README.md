@@ -8,10 +8,14 @@ Ini adalah improvisasi dari versi [pertama}(https://github.com/Reynadi531/api-co
 ## Endpoints
     * /api/indonesia 
         > Menampilkan data kumulatif terbaru
+    * /api/indonesia/more 
+        > Menampilkan data kumulatif terbaru lebih detail
     * /api/indonesia/harian 
         > Menampilkan data harian sejak pasien awal
     * /api/indonesia/provinsi
         > Menampilkan data setiap provinsi
+    * /api/indonesia/provinsi
+        > Menampilkan data setiap provinsi lebih detail
 
 ## License
 
