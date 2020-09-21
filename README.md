@@ -8,15 +8,15 @@ Ini adalah improvisasi dari versi [pertama](https://github.com/Reynadi531/api-co
 >[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?template=https://github.com/Reynadi531/api-covid19-indonesia-v2)
 
 ## Endpoints
-* /api/indonesia 
+* [/api/indonesia](http://apicovid19indonesia-v2.vercel.app/api/indonesia) 
    > Menampilkan data kumulatif terbaru
-* /api/indonesia/more 
+* [/api/indonesia/more](http://apicovid19indonesia-v2.vercel.app/api/indonesia/more) 
    > Menampilkan data kumulatif terbaru lebih detail
-* /api/indonesia/harian 
+* [/api/indonesia/harian](http://apicovid19indonesia-v2.vercel.app/api/indonesia/harian) 
    > Menampilkan data harian sejak pasien awal
-* /api/indonesia/provinsi
+* [/api/indonesia/provinsi](http://apicovid19indonesia-v2.vercel.app/api/indonesia/provinsi)
    > Menampilkan data setiap provinsi
-* /api/indonesia/provinsi
+* [/api/indonesia/provinsi/more](http://apicovid19indonesia-v2.vercel.app/api/indonesia/provinsi/more)
    > Menampilkan data setiap provinsi lebih detail
 
 ## License
