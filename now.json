@@ -13,6 +13,9 @@
       "dest": "app.js"
     }
   ],
+  "regions": [
+      "sin1"
+  ],
   "alias": [
     "indonesiapicovid19-v2"
   ]
