@@ -4,7 +4,7 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 const compression = require('compression');
 
-const { notFound, errorHandler } = require('./middlewares');
+const { notFound, errorHandler, cacheControl } = require('./middlewares');
 
 require('dotenv').config();
 
@@ -39,6 +39,7 @@ app.get('/api', (req, res) => {
     });
 });
 
+app.use(cacheControl);
 app.use(notFound);
 app.use(errorHandler);
 const PORT = process.env.PORT || 3000;
