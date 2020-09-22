@@ -25,6 +25,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api', (req, res) => {
+    res.set('Cache-control', 'public, max-age=60');
     const url = `${req.protocol}://${req.hostname}${req.hostname == 'localhost' ? `:${PORT}` : ''}`;
     res.json({
         "message": "Selamat Datang di API COVID-19 INDONESIA - Enjoy My Work",
