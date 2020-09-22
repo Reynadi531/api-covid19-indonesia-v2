@@ -16,7 +16,7 @@ const errorHandler = (error, req, res, next) => {
 
 const cacheControl = (req, res, next) => {
     if (req.method == 'GET') {
-        res.set('Cache-control', 'public', 'max-age=60');
+        res.set('Cache-control', 'public, max-age=60');
     } else {
         res.set('Cache-control', `no-store`)
     }
