@@ -16,6 +16,9 @@ app.use(morgan('dev'));
 
 app.use(compression());
 
+
+app.use(cacheControl);
+
 const indonesiaRoutes = require('./Routes/indonesia');
 
 app.use('/api/indonesia', indonesiaRoutes);
@@ -39,7 +42,6 @@ app.get('/api', (req, res) => {
     });
 });
 
-app.use(cacheControl);
 app.use(notFound);
 app.use(errorHandler);
 const PORT = process.env.PORT || 3000;
