@@ -5,7 +5,6 @@ const axios = require('axios');
 const url = 'https://data.covid19.go.id/public/api/update.json';
 
 router.get('/', async(req, res) => {
-    res.set('Cache-control', 'public, max-age=60');
     const response = await axios.get(url);
     res.json({
         "positif": response.data.update.total.jumlah_positif,
@@ -17,7 +16,6 @@ router.get('/', async(req, res) => {
 });
 
 router.get('/more', async(req, res) => {
-    res.set('Cache-control', 'public, max-age=60');
     const response = await axios.get(url);
     res.json({
         "total": {
@@ -45,7 +43,6 @@ router.get('/more', async(req, res) => {
 });
 
 router.get('/harian', async(req, res) => {
-    res.set('Cache-control', 'public, max-age=60');
     const response = await axios.get(url);
     let harian = response.data.update.harian;
     let datamodified = harian.map(data => {
@@ -81,7 +78,6 @@ router.get('/provinsi', async(req, res) => {
 });
 
 router.get('/provinsi/more', async(req, res) => {
-    res.set('Cache-control', 'public, max-age=60');
     const response = await axios.get('https://data.covid19.go.id/public/api/prov.json');
     let list_data = response.data.list_data;
     let datamodified = list_data.map(data => {
