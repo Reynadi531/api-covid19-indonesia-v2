@@ -14,7 +14,7 @@
     }
   ],
   "regions": [
-      "sin1"
+      "sin1", "syd1", "hnd1", "hkg1"
   ],
   "alias": [
     "indonesiapicovid19-v2"
