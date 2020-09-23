@@ -10,7 +10,8 @@
   "routes": [
     {
       "src": "/.*",
-      "dest": "app.js"
+      "dest": "app.js",
+      "headers": { "cache-control": "public, s-maxage=60, stale-while-revalidate" }
     }
   ],
   "regions": [
