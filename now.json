@@ -11,7 +11,7 @@
     {
       "src": "/.*",
       "dest": "app.js",
-      "headers": { "cache-control": "public, s-maxage=60, stale-while-revalidate" }
+      "headers": { "cache-control": "public, s-maxage=60" }
     }
   ],
   "regions": [
