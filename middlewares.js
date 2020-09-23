@@ -15,12 +15,18 @@ const errorHandler = (error, req, res, next) => {
 };
 
 const cacheControl = (req, res, next) => {
-    if (req.method == 'GET') {
-        res.set('Cache-control', 'public, max-age=60');
-    } else {
-        res.set('Cache-control', `no-store`)
-    }
-    next()
+//     if (req.method == 'GET') {
+//         res.set('Cache-control', 'public, max-age=60');
+//     } else {
+//         res.set('Cache-control', `no-store`)
+//     }
+     if (! ('JSONResponse' in res) ) {
+         return next();
+     }
+
+      res.set('Cache-Control', 'public, max-age=60');
+      res.json(res.JSONResponse);
+      next()
 }
 
 module.exports = {
