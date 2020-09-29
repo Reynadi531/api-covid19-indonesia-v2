@@ -8,17 +8,14 @@ router.get('/', async(req, res) => {
     const response = await axios.get(url);
     // Change UTC timebase
     let finalTIME;
-    if(!req.hostname == 'localhost') {
-        let tanggal = response.data.update.penambahan.created.split(' ')[0]
-        let waktu = response.data.update.penambahan.created.split(' ')[1].split(':')
-        let jam = Number(waktu[0]) - 7;
-        waktu.shift(1)
-        waktu.unshift(jam)
-        let waktuUTC = waktu.join(':');
-        finalTIME = `${tanggal} ${waktuUTC}`;
-    }else{
-        finalTIME = response.data.update.penambahan.created;
-    }
+    let tanggal = response.data.update.penambahan.created.split(' ')[0]
+    let waktu = response.data.update.penambahan.created.split(' ')[1].split(':')
+    let jam = Number(waktu[0]) - 7;
+    waktu.shift(1)
+    waktu.unshift(jam)
+    let waktuUTC = waktu.join(':');
+    finalTIME = `${tanggal} ${waktuUTC}`;
+   
     res.json({
         "positif": response.data.update.total.jumlah_positif,
         "dirawat": response.data.update.total.jumlah_dirawat,
@@ -32,17 +29,13 @@ router.get('/more', async(req, res) => {
     const response = await axios.get(url);
     // Change UTC timebase
     let finalTIME;
-    if (!req.hostname == 'localhost') {
-        let tanggal = response.data.update.penambahan.created.split(' ')[0]
-        let waktu = response.data.update.penambahan.created.split(' ')[1].split(':')
-        let jam = Number(waktu[0]) - 7;
-        waktu.shift(1)
-        waktu.unshift(jam)
-        let waktuUTC = waktu.join(':');
-        finalTIME = `${tanggal} ${waktuUTC}`;
-    } else {
-        finalTIME = response.data.update.penambahan.created;
-    }
+    let tanggal = response.data.update.penambahan.created.split(' ')[0]
+    let waktu = response.data.update.penambahan.created.split(' ')[1].split(':')
+    let jam = Number(waktu[0]) - 7;
+    waktu.shift(1)
+    waktu.unshift(jam)
+    let waktuUTC = waktu.join(':');
+    finalTIME = `${tanggal} ${waktuUTC}`;
     res.json({
         "total": {
             "positif": response.data.update.total.jumlah_positif,
