@@ -6,24 +6,50 @@ const url = 'https://data.covid19.go.id/public/api/update.json';
 
 router.get('/', async(req, res) => {
     const response = await axios.get(url);
+    // Change UTC timebase
+    let finalTIME;
+    if(!req.hostname == 'localhost') {
+        let tanggal = response.data.update.penambahan.created.split(' ')[0]
+        let waktu = response.data.update.penambahan.created.split(' ')[1].split(':')
+        let jam = Number(waktu[0]) - 7;
+        waktu.shift(1)
+        waktu.unshift(jam)
+        let waktuUTC = waktu.join(':');
+        finalTIME = `${tanggal} ${waktuUTC}`;
+    }else{
+        finalTIME = response.data.update.penambahan.created;
+    }
     res.json({
         "positif": response.data.update.total.jumlah_positif,
         "dirawat": response.data.update.total.jumlah_dirawat,
         "sembuh": response.data.update.total.jumlah_sembuh,
         "meninggal": response.data.update.total.jumlah_meninggal,
-        "lastUpdate": new Date(response.data.update.penambahan.created)
+        "lastUpdate": new Date(finalTIME)
     });
 });
 
 router.get('/more', async(req, res) => {
     const response = await axios.get(url);
+    // Change UTC timebase
+    let finalTIME;
+    if (!req.hostname == 'localhost') {
+        let tanggal = response.data.update.penambahan.created.split(' ')[0]
+        let waktu = response.data.update.penambahan.created.split(' ')[1].split(':')
+        let jam = Number(waktu[0]) - 7;
+        waktu.shift(1)
+        waktu.unshift(jam)
+        let waktuUTC = waktu.join(':');
+        finalTIME = `${tanggal} ${waktuUTC}`;
+    } else {
+        finalTIME = response.data.update.penambahan.created;
+    }
     res.json({
         "total": {
             "positif": response.data.update.total.jumlah_positif,
             "dirawat": response.data.update.total.jumlah_dirawat,
             "sembuh": response.data.update.total.jumlah_sembuh,
             "meninggal": response.data.update.total.jumlah_meninggal,
-            "lastUpdate": new Date(response.data.update.penambahan.created)
+            "lastUpdate": new Date(finalTIME)
         },
         "penambahan": {
             "positif": response.data.update.penambahan.jumlah_positif,
@@ -31,7 +57,7 @@ router.get('/more', async(req, res) => {
             "sembuh": response.data.update.penambahan.jumlah_sembuh,
             "meninggal": response.data.update.penambahan.jumlah_meninggal,
             "tanggal": response.data.update.penambahan.tanggal,
-            "created": new Date(response.data.update.penambahan.created),
+            "created": new Date(finalTIME),
         },
         "data": {
             "odp": response.data.data.jumlah_odp,
