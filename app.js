@@ -17,8 +17,10 @@ app.use(morgan('dev'));
 app.use(compression());
 
 const indonesiaRoutes = require('./Routes/indonesia');
+const indonesiaCSVRoutes = require('./Routes/indonesia-csv');
 
 app.use('/api/indonesia', indonesiaRoutes);
+app.use('/api/indonesia/csv', indonesiaCSVRoutes);
 
 app.get('/', (req, res) => {
     res.redirect('/api');
@@ -35,6 +37,9 @@ app.get('/api', (req, res) => {
             `${url}/api/indonesia/harian`,
             `${url}/api/indonesia/provinsi`,
             `${url}/api/indonesia/provinsi/more`,
+            `${url}/api/indonesia/csv`,
+            `${url}/api/indonesia/csv/harian`,
+            `${url}/api/indonesia/csv/provinsi`,
         ]
     });
 });
