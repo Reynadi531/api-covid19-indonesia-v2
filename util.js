@@ -5,7 +5,7 @@ const downloadCSV = (res, fileName, fields, data) => {
     const csv = json2csv.parse(data);
     res.header('Content-Type', 'text/csv');
     res.attachment(fileName);
-    return res.send(csv);
+    return res.send(csv.toString());
 }
 
 module.exports = {
