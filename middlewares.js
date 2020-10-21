@@ -8,22 +8,21 @@ const notFound = (req, res, next) => {
 const errorHandler = (error, req, res, next) => {
     const statusCode = res.statusCode === 200 ? 500 : res.statusCode;
     res.status(statusCode);
-    res.json({
-        message: error.message,
-        erorr: process.env.NODE_ENV === 'production' ? '🔥' : error.stack,
-    });
-};
-
-const cacheControl = (req, res, next) => {
-    if (req.method == 'GET') {
-        res.set('Cache-control', 'public, max-age=60, s-maxage=60');
-    } else {
-        res.set('Cache-control', `no-store`)
+    if(!process.env.NODE_ENV == 'production') {
+        res.json({
+            message: error.message,
+            statusCode: statusCode,
+            erorr: process.env.NODE_ENV === 'production' ? '🔥' : error.stack,
+        });
+    }else{
+        res.json({
+            message: error.message,
+            statusCode: statusCode
+        });
     }
-}
+};
 
 module.exports = {
     notFound,
-    errorHandler,
-    cacheControl
+    errorHandler
 };

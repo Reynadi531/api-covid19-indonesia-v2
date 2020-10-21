@@ -3,8 +3,9 @@ const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const compression = require('compression');
+const cacheControl = require('express-cache-controller');
 
-const { notFound, errorHandler, cacheControl } = require('./middlewares');
+const { notFound, errorHandler } = require('./middlewares');
 
 require('dotenv').config();
 
@@ -13,11 +14,11 @@ app.use(express.json());
 app.use(cors());
 app.use(helmet());
 app.use(morgan('dev'));
-
+app.use(cacheControl({ maxAge: 60, sMaxAge: 60 }));
 app.use(compression());
 
-const indonesiaRoutes = require('./Routes/indonesia');
-const indonesiaCSVRoutes = require('./Routes/indonesia-csv');
+const indonesiaRoutes = require('./Routes/index');
+const indonesiaCSVRoutes = require('./Routes/csvRouter');
 
 app.use('/api/indonesia', indonesiaRoutes);
 app.use('/api/indonesia/csv', indonesiaCSVRoutes);
@@ -44,7 +45,6 @@ app.get('/api', (req, res) => {
     });
 });
 
-app.use(cacheControl);
 app.use(notFound);
 app.use(errorHandler);
 const PORT = process.env.PORT || 3000;
