@@ -6,13 +6,14 @@ module.exports = async(req, res) => {
     const rootData = await updateData(true);
     let tanggal = data.penambahan.created.split(' ')[0]
     let waktu = data.penambahan.created.split(' ')[1].split(':')
+    let timestamp = utcConverter(tanggal, waktu);
     res.json({
         "total": {
             "positif": data.total.jumlah_positif,
             "dirawat": data.total.jumlah_dirawat,
             "sembuh": data.total.jumlah_sembuh,
             "meninggal": data.total.jumlah_meninggal,
-            "lastUpdate": new Date(utcConverter(tanggal, waktu))
+            "lastUpdate": new Date(timestamp),
         },
         "penambahan": {
             "positif": data.penambahan.jumlah_positif,
@@ -20,7 +21,7 @@ module.exports = async(req, res) => {
             "sembuh": data.penambahan.jumlah_sembuh,
             "meninggal": data.penambahan.jumlah_meninggal,
             "tanggal": data.penambahan.tanggal,
-            "created": new Date(utcConverter(tanggal, waktu)),
+            "created": new Date(timestamp),
         },
         "data": {
             "odp": rootData.data.jumlah_odp,
