@@ -1,5 +1,5 @@
 const { updateData } = require('../../util/fetcher');
-const utcConverter = require('../../util/utcConverter')
+const utcConverter = require('../../util/utcConverter');
 
 module.exports = async(req, res) => {
     const data = await updateData(false);

@@ -16,6 +16,8 @@ Ini adalah improvisasi dari versi [pertama](https://github.com/Reynadi531/api-co
    > Menampilkan data harian sejak pasien awal
 * [/api/indonesia/provinsi](http://apicovid19indonesia-v2.vercel.app/api/indonesia/provinsi)
    > Menampilkan data setiap provinsi
+* [/api/indonesia/provinsi/alt](http://apicovid19indonesia-v2.vercel.app/api/indonesia/provinsi/alt)
+   > Menampilkan data alternative setiap provinsi
 * [/api/indonesia/provinsi/more](http://apicovid19indonesia-v2.vercel.app/api/indonesia/provinsi/more)
    > Menampilkan data setiap provinsi lebih detail
 * [/api/indonesia/csv](http://apicovid19indonesia-v2.vercel.app/api/indonesia/csv)
@@ -24,6 +26,8 @@ Ini adalah improvisasi dari versi [pertama](https://github.com/Reynadi531/api-co
    > Meanmpilkan data sama dengan /api/indonesia/harian dalam bentuk csv
 * [/api/indonesia/csv/provinsi](http://apicovid19indonesia-v2.vercel.app/api/indonesia/csv/provinsi)
    > Meanmpilkan data sama dengan /api/indonesia/provinsi dalam bentuk csv
+* [/api/indonesia/csv/provinsi/alt](http://apicovid19indonesia-v2.vercel.app/api/indonesia/csv/provinsi/alt)
+   > Meanmpilkan data sama dengan /api/indonesia/provinsi/alt dalam bentuk csv
 
 ## Showcase
 

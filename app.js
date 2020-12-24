@@ -32,16 +32,32 @@ app.get('/api', (req, res) => {
     res.json({
         "message": "Selamat Datang di API COVID-19 INDONESIA - Enjoy My Work",
         "projects source": "https://github.com/Reynadi531/api-covid19-indonesia-v2",
-        "endpoints": [
-            `${url}/api/indonesia`,
-            `${url}/api/indonesia/more`,
-            `${url}/api/indonesia/harian`,
-            `${url}/api/indonesia/provinsi`,
-            `${url}/api/indonesia/provinsi/more`,
-            `${url}/api/indonesia/csv`,
-            `${url}/api/indonesia/csv/harian`,
-            `${url}/api/indonesia/csv/provinsi`,
-        ]
+        "endpoints": {
+            "kumulatif": [
+                `${url}/api/indonesia`,
+                `${url}/api/indonesia/more`
+            ],
+            "harian": [
+                `${url}/api/indonesia/harian`,
+            ],
+            "provinsi": [
+                `${url}/api/indonesia/provinsi`,
+                `${url}/api/indonesia/provinsi/alt`,
+                `${url}/api/indonesia/provinsi/more`,
+            ],
+            "csv": {
+                "kumulatif": [
+                    `${url}/api/indonesia/csv`,
+                ],
+                "harian": [
+                    `${url}/api/indonesia/csv/harian`,
+                ],
+                "provinsi": [
+                    `${url}/api/indonesia/csv/provinsi`,
+                    `${url}/api/indonesia/csv/provinsi/alt`,
+                ]
+            }
+        }
     });
 });
 
