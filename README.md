@@ -21,13 +21,13 @@ Ini adalah improvisasi dari versi [pertama](https://github.com/Reynadi531/api-co
 * [/api/indonesia/provinsi/more](http://apicovid19indonesia-v2.vercel.app/api/indonesia/provinsi/more)
    > Menampilkan data setiap provinsi lebih detail
 * [/api/indonesia/csv](http://apicovid19indonesia-v2.vercel.app/api/indonesia/csv)
-   > Meanmpilkan data sama dengan /api/indonesia dalam bentuk csv
+   > Menampilkan data sama dengan /api/indonesia dalam bentuk csv
 * [/api/indonesia/csv/harian](http://apicovid19indonesia-v2.vercel.app/api/indonesia/csv/harian)
-   > Meanmpilkan data sama dengan /api/indonesia/harian dalam bentuk csv
+   > Menampilkan data sama dengan /api/indonesia/harian dalam bentuk csv
 * [/api/indonesia/csv/provinsi](http://apicovid19indonesia-v2.vercel.app/api/indonesia/csv/provinsi)
-   > Meanmpilkan data sama dengan /api/indonesia/provinsi dalam bentuk csv
+   > Menampilkan data sama dengan /api/indonesia/provinsi dalam bentuk csv
 * [/api/indonesia/csv/provinsi/alt](http://apicovid19indonesia-v2.vercel.app/api/indonesia/csv/provinsi/alt)
-   > Meanmpilkan data sama dengan /api/indonesia/provinsi/alt dalam bentuk csv
+   > Menampilkan data sama dengan /api/indonesia/provinsi/alt dalam bentuk csv
 
 ## Showcase
 
