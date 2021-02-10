@@ -4,7 +4,7 @@ Ini adalah improvisasi dari versi [pertama](https://github.com/Reynadi531/api-co
 
 ## Deployment
 >[JSON API](https://apicovid19indonesia-v2.vercel.app/)<br>
->[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/git?s=https%3A%2F%2Fgithub.com%2FReynadi531%2Fapi-covid19-indonesia)
+>[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2FReynadi531%2Fapi-covid19-indonesia-v2)
 >[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?template=https://github.com/Reynadi531/api-covid19-indonesia-v2)
 
 ## Endpoints
