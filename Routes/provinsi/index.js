@@ -1,8 +1,8 @@
 const { provData } = require('../../util/fetcher')
 
 module.exports = async(req, res) => {
-    const Data = await provData()
-    let datamodified = Data.map(data => {
+    const rawData = await provData()
+    let datamodified = (rawData.list_data).map(data => {
         return {
             "provinsi": data.key,
             "kasus": data.jumlah_kasus,

@@ -13,7 +13,7 @@ const updateData = async(rootData) => {
 
 const provData = async() => {
     const { data } = await axios.get('https://data.covid19.go.id/public/api/prov.json');
-    return data.list_data
+    return data
 }
 
 const provDataAlt = async() => {

@@ -2,8 +2,8 @@ const downloadCSV = require('../../util/csvDownloader');
 const { provData } = require('../../util/fetcher');
 
 module.exports = async(req, res) => {
-    let list_data = await provData();
-    let datamodified = list_data.map(data => {
+    let rawData = await provData();
+    let datamodified = (rawData.list_data).map(data => {
         return {
             "provinsi": data.key,
             "kasus": data.jumlah_kasus,
