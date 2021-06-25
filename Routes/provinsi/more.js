@@ -2,7 +2,17 @@ const { provData } = require('../../util/fetcher')
 
 module.exports = async(req, res) => {
     const rawData = await provData();
-    let datamodified = (rawData.list_data).map((data) => {
+    let datamodified = (rawData.list_data).filter(x => x.lokasi != null).map((data) => {
+        const jeniskelamin = {}
+        data['jenis_kelamin'].forEach(x => {
+            jeniskelamin[x['key'].toLowerCase()] = x['doc_count']
+        })
+
+        const kelompok_umur = {}
+        data['kelompok_umur'].forEach(x => {
+            kelompok_umur[x['key']] = x['doc_count']
+        })
+
         return {
             "provinsi": data.key,
             "kasus": data.jumlah_kasus,
@@ -10,11 +20,8 @@ module.exports = async(req, res) => {
             "sembuh": data.jumlah_sembuh,
             "meninggal": data.jumlah_meninggal,
             "last_date": rawData.last_date,
-            "jenis_kelamin": {
-                "laki-laki": data.jenis_kelamin[0].doc_count,
-                "perempuan": data.jenis_kelamin[1].doc_count,
-            },
-            "kelompok_umur": (data.kelompok_umur).map(e => ({ [e.key]: e.doc_count })),
+            "jenis_kelamin": jeniskelamin,
+            "kelompok_umur": kelompok_umur,
             "penambahan": {
                 "positif": data.penambahan.positif,
                 "sembuh": data.penambahan.sembuh,
