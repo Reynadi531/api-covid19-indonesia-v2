@@ -15,12 +15,12 @@ Ini adalah improvisasi dari versi [pertama](https://github.com/Reynadi531/api-co
 * [/api/indonesia/harian](http://apicovid19indonesia-v2.vercel.app/api/indonesia/harian) 
    > Menampilkan data harian sejak pasien awal
 * [/api/indonesia/provinsi](http://apicovid19indonesia-v2.vercel.app/api/indonesia/provinsi)
-   > Menampilkan data setiap provinsi
+   > Menampilkan data setiap provinsi <br>
    > Dapat menambahkan query `name` untuk menentukan provinsi, contohnya `/api/indonesia/provinsi?name=dki_jakarta`
 * [/api/indonesia/provinsi/alt](http://apicovid19indonesia-v2.vercel.app/api/indonesia/provinsi/alt)
    > Menampilkan data alternative setiap provinsi
 * [/api/indonesia/provinsi/more](http://apicovid19indonesia-v2.vercel.app/api/indonesia/provinsi/more)
-   > Menampilkan data setiap provinsi lebih detail
+   > Menampilkan data setiap provinsi lebih detail <br>
    > Dapat menambahkan query `name` untuk menentukan provinsi, contohnya `/api/indonesia/provinsi/more?name=dki_jakarta`
 * [/api/indonesia/csv](http://apicovid19indonesia-v2.vercel.app/api/indonesia/csv)
    > Menampilkan data sama dengan /api/indonesia dalam bentuk csv
