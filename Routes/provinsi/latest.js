@@ -3,7 +3,7 @@ const { provData } = require('../../util/fetcher')
 module.exports = async(req, res) => {
     const rawData = await provData()
     console.log(req.params.nama)
-    if(req.params.nama){
+    if(req.params.nama != "all"){
         let datamodified = (rawData.list_data).filter(x => x.lokasi != null && x.key == req.params.nama.split('_').join(' ').toUpperCase()).map(data => {
             return {
                 "provinsi": data.key,
@@ -32,4 +32,3 @@ module.exports = async(req, res) => {
     })
     return res.json(datamodified);
 }
-
