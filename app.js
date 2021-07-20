@@ -39,9 +39,11 @@ app.get('/api', (req, res) => {
             ],
             "harian": [
                 `${url}/api/indonesia/harian`,
+                `${url}/api/indonesia/harian/latest`,
             ],
             "provinsi": [
                 `${url}/api/indonesia/provinsi`,
+                `${url}/api/indonesia/provinsi/latest`,
                 `${url}/api/indonesia/provinsi/alt`,
                 `${url}/api/indonesia/provinsi/more`,
             ],

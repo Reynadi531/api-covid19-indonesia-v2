@@ -17,5 +17,5 @@ module.exports = async(req, res) => {
         }
     });
     datamodified = datamodified.reverse()
-    res.json(datamodified);
+    res.json(datamodified[0]);
 }
