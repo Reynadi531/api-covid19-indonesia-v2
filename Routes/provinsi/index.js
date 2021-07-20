@@ -2,8 +2,9 @@ const { provData } = require('../../util/fetcher')
 
 module.exports = async(req, res) => {
     const rawData = await provData()
-    if(req.query.name)  {
-        let datamodified = (rawData.list_data).filter(x => x.lokasi != null && x.key == req.query.name.split('_').join(' ').toUpperCase()).map(data => {
+    console.log(req.params.nama)
+    if(req.params.nama){
+        let datamodified = (rawData.list_data).filter(x => x.lokasi != null && x.key == req.params.nama.split('_').join(' ').toUpperCase()).map(data => {
             return {
                 "provinsi": data.key,
                 "kasus": data.jumlah_kasus,
