@@ -13,7 +13,8 @@ Ini adalah improvisasi dari versi [pertama](https://github.com/Reynadi531/api-co
 * [/api/indonesia/more](http://apicovid19indonesia-v2.vercel.app/api/indonesia/more) 
    > Menampilkan data kumulatif terbaru lebih detail
 * [/api/indonesia/harian](http://apicovid19indonesia-v2.vercel.app/api/indonesia/harian) 
-   > Menampilkan data harian sejak pasien awal
+   > Menampilkan data harian sejak pasien awal <br>
+   > Dapat menambahkan query `status` untuk menentukan umur data, contohnya `/api/indonesia/harian?status=latest` atau `/api/indonesia/harian?status=first`
 * [/api/indonesia/provinsi](http://apicovid19indonesia-v2.vercel.app/api/indonesia/provinsi)
    > Menampilkan data setiap provinsi <br>
    > Dapat menambahkan query `name` untuk menentukan provinsi, contohnya `/api/indonesia/provinsi?name=dki_jakarta`
