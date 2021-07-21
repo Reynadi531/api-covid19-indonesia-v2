@@ -16,5 +16,14 @@ module.exports = async(req, res) => {
             "tanggal": data.key_as_string,
         }
     });
+    datamodified = datamodified.reverse()
+    if(req.query.status){
+        if(req.query.status.toLowerCase() == 'latest'){
+            datamodified = datamodified[0]
+        }
+        if(req.query.status.toLowerCase() == 'first'){
+            datamodified = datamodified[datamodified.length-1]
+        }
+    }
     res.json(datamodified);
 }
