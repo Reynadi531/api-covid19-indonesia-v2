@@ -1,7 +1,23 @@
-const { periodicalProvData } = require('../../util/fetcher')
-module.exports = async(req, res) => {
+const NodeCache= require("node-cache")
+const axios = require('axios')
+const myCache = new NodeCache()
 
-  var data = await periodicalProvData()
+const fetch = async() =>{
+  const { data } = await axios.get("https://data.covid19.go.id/public/api/prov_time.json")
+  myCache.set("dailyProvData", data)
+  console.log("Finished initial data fetch")
+
+}
+fetch()
+setInterval(fetch, 60*60*1000)
+
+module.exports = async(req, res) => {
+  var data = await myCache.get("dailyProvData")
+  if(!data){
+    console.log("data cache not found. refreshing")
+    await fetch()
+    data = await myCache.get("dailyProvData")
+  }
   data = data.list
   const date = req.query.date || undefined
   const month = req.query.month || undefined
@@ -22,7 +38,7 @@ module.exports = async(req, res) => {
   await filterFunction().then(()=>{
     console.log(data)
     return res.json({
-      ...data
+      data
     })
   })
 }
