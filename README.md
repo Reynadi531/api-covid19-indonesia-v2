@@ -22,6 +22,9 @@ Ini adalah improvisasi dari versi [pertama](https://github.com/Reynadi531/api-co
 * [/api/indonesia/provinsi/more](http://apicovid19indonesia-v2.vercel.app/api/indonesia/provinsi/more)
    > Menampilkan data setiap provinsi lebih detail <br>
    > Dapat menambahkan query `name` untuk menentukan provinsi, contohnya `/api/indonesia/provinsi/more?name=dki_jakarta`
+* [/api/indonesia/provinsi/harian](http://apicovid19indonesia-v2.vercel.app/api/indonesia/provinsi/harian)
+   > Menampilkan data harian untuk setiap provinsi <br>
+   > Dapat menambahkan query `date`, `month`, dan `year` untuk mencari informasi berdasarkan tanggal tertentu. Contohnya `/api/indonesia/provinsi/harian?date=01&month=June&year=2021` untuk data provinsi pada tanggah 1 Juni 2021, atau `/api/indonesia/provinsi/harian?date=15` untuk menampilkan data setiap provinsi setiap tanggal 15.
 * [/api/indonesia/csv](http://apicovid19indonesia-v2.vercel.app/api/indonesia/csv)
    > Menampilkan data sama dengan /api/indonesia dalam bentuk csv
 * [/api/indonesia/csv/harian](http://apicovid19indonesia-v2.vercel.app/api/indonesia/csv/harian)

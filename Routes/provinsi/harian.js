@@ -12,7 +12,7 @@ module.exports = async(req, res) => {
       data =  data.filter(object => object.date.split(" ")[0] == date)
     }
     if(month){
-      data = data.filter(object => object.date.split(" ")[1] == month)
+      data = data.filter(object => object.date.split(" ")[1].toUpperCase() == month.toUpperCase())
     }
     if(year){
       data = data.filter(object => object.date.split(" ")[2] == year)
