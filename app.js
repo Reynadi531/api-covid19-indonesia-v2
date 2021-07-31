@@ -44,6 +44,7 @@ app.get('/api', (req, res) => {
                 `${url}/api/indonesia/provinsi`,
                 `${url}/api/indonesia/provinsi/alt`,
                 `${url}/api/indonesia/provinsi/more`,
+                `${url}/api/indonesia/provinsi/harian`
             ],
             "csv": {
                 "kumulatif": [

@@ -24,5 +24,6 @@ const provDataAlt = async() => {
 module.exports = {
     updateData,
     provData,
-    provDataAlt
+    provDataAlt,
+    
 }

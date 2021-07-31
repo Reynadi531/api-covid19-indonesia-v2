@@ -19,6 +19,7 @@
     "express-cache-controller": "^1.1.0",
     "helmet": "^3.23.3",
     "json2csv": "^5.0.3",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "node-cache": "^5.1.2"
   }
 }
