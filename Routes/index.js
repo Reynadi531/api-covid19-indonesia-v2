@@ -5,6 +5,7 @@ router.get('/', require('./indonesia/index'));
 router.get('/more', require('./indonesia/more'));
 router.get('/harian', require('./harian/index'));
 router.get('/provinsi/', require('./provinsi/index'));
+router.get("/provinsi/harian", require("./provinsi/harian"))
 router.get('/provinsi/more', require('./provinsi/more'));
 router.get('/provinsi/alt', require('./provinsi/alt'));
 

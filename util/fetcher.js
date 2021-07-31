@@ -16,6 +16,11 @@ const provData = async() => {
     return data
 }
 
+const periodicalProvData = async() => {
+    const { data } = await axios.get("https://data.covid19.go.id/public/api/prov_time.json")
+    return data
+}
+
 const provDataAlt = async() => {
     const { data } = await axios.get('https://services5.arcgis.com/VS6HdKS0VfIhv8Ct/arcgis/rest/services/COVID19_Indonesia_per_Provinsi/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json');
     return data.features
@@ -24,5 +29,7 @@ const provDataAlt = async() => {
 module.exports = {
     updateData,
     provData,
-    provDataAlt
+    provDataAlt,
+    periodicalProvData
+    
 }
