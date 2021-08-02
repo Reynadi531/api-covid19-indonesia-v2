@@ -36,7 +36,6 @@ module.exports = async(req, res) => {
   }
 
   await filterFunction().then(()=>{
-    console.log(data)
     return res.json({
       data
     })
