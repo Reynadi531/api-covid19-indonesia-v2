@@ -1,6 +1,4 @@
-const NodeCache= require("node-cache")
 const axios = require('axios')
-const fs = require('fs')
 var fetcheddata;
 const fetch = async() =>{
   const { data } = await axios.get("https://data.covid19.go.id/public/api/prov_time.json")
