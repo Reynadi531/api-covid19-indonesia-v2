@@ -19,9 +19,9 @@ module.exports = async(req, res) => {
     data = await myCache.get("dailyProvData")
   }
   data = data.list
-  const date = req.query.date || undefined
-  const month = req.query.month || undefined
-  const year = req.query.year || undefined
+  const date = req.query.date
+  const month = req.query.month
+  const year = req.query.year
 
   const filterFunction = async() =>{
     if(date){
